@@ -3,7 +3,7 @@
         <section>
             <link rel="stylesheet" href="assets/lightbox/magnific-popup.css"/>
             <link rel="stylesheet" href="assets/css/product.css"/>
-            <div class="container mt-4">
+            <div class="container mt-4 single-product-row">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-12 product-image-col row pt-3">
                         <div class="image single-product-images">
@@ -86,13 +86,8 @@
                         </h6>
                         <p class="text-sm" v-html="product.description">
                         </p>
-                        <p class="text-sm pt-4">
-                            
-                        </p>
-                        <p class="text-sm pt-2">
-                            
-                        </p>
-                        <div class="quantity-buy d-flex">
+                        <div class="d-flex" style="flex-wrap: wrap;">
+                            <div class="quantity-buy d-flex me-3">
                             <div class="quantity">
                                 <button class="cart-qty-minus" id="dec" @click="decrement" type="button" value="-">-</button>
                                 <input type="text" name="qty" id="qty" min="1" @blur="updateQty" v-model="qty" class="input-text qty" />
@@ -101,13 +96,16 @@
                             </div>
                             <button data-bs-toggle="modal" data-bs-target="#buy-to-cart" class="btn" @click="AddToCart(product, variations, '', size, qty)">Buy</button>
 
-                            <button data-bs-toggle="modal" data-bs-target="#find-store-modal" style="margin-left:20px !important" class="btn bg-dark">
+                        </div>
+                            <div class="h-100">
+                                <button data-bs-toggle="modal" data-bs-target="#find-store-modal" class="btn bg-dark rounded-0 text-light find-in-store">
                                 Find In Store
                             </button>
+                            </div>
                         </div>
                          <!-- Checkout modal  -->
                          <checkout :cartItems="cartItems"></checkout>
-                        <div class="products-options mt-4 d-lg-flex">
+                        <div class="products-options mt-4 d-flex" style="flex-wrap: wrap;">
                             <a href="#" class="text-decoration-none text-dark me-3" @click.prevent="addToCompareList(product)">
                                 <b><i class="fas fa-random"></i> Compare</b>
                             </a>
