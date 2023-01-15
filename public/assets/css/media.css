@@ -169,6 +169,9 @@
     .all-products-widget .filter-dropdown .row{
       margin: 0;
     }
+    .flash-sell .product .images img{
+      height: 270px;  
+    }
   }
   
   /* Extra Extra large devices (large desktops, 1200px and up)*/
@@ -199,16 +202,33 @@
     .all-products-widget .filter-dropdown .row{
       margin: 0;
     }
+    .flash-sell .product .images img{
+      height: 280px;  
+    }
   }
 
   @media (max-width: 400px) {
-    .find-in-store{
-      margin-top: 15px;
-    }
+    
   }
   @media (max-width: 360px){
     .product-items div > .images img, .deal-day-row .product .images img{
       height: 180px;
+    }
+    .quantity-buy .quantity{
+      display: flex;
+      align-items: center;
+    }
+    .quantity-buy .quantity button{
+      height: 40px;
+      width: 40px;
+      font-size: small;
+    }
+    .quantity-buy .quantity input{
+      height: 40px;
+      width: 40px;
+    }
+    .find-in-store{
+      height: 40px;
     }
     
   }

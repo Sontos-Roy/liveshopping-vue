@@ -3,9 +3,9 @@
         <section>
             <link rel="stylesheet" href="assets/lightbox/magnific-popup.css"/>
             <link rel="stylesheet" href="assets/css/product.css"/>
-            <div class="container mt-4 single-product-row">
+            <div class="container mt-lg-3 mt-1 single-product-row">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-12 product-image-col row pt-3">
+                    <div class="col-lg-4 col-md-6 col-12 product-image-col row pt-lg-3 pt-2">
                         <div class="image single-product-images">
                             <div class="discount-tag d-none">
                                 -48%
@@ -69,80 +69,85 @@
 
                         
                     </div>
-                    <div class="modal-product-details col-lg-7 col-md-6 col-12 pt-3">
-                        <nav aria-label="breadcrumb" class="pt-0">
+                    <div class="modal-product-details col-lg-7 col-md-6 col-12 pt-3 row">
+                        <div class="col-lg-7">
+                            <nav aria-label="breadcrumb" class="pt-0">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                               <li class="breadcrumb-item"><a href="#">{{product.category}}</a></li>
                               <li class="breadcrumb-item active" aria-current="page">{{product.product ?? product.default_name}}</li>
                             </ol>
                           </nav>
-                        <a href="#" class="text-decoration-none text-dark">
-                            <h3>{{product.product ?? product.default_name}}</h3>
-                        </a>
-                        
-                        <h6 class="price pt-3">
-                            <span class="ps-1" style="color: #ff7400; font-weight: bold;">{{Number(product.variation.sell_price_inc_tax).toFixed(2)}}৳</span>
-                        </h6>
-                        <p class="text-sm" v-html="product.description">
-                        </p>
-                        <div class="d-flex" style="flex-wrap: wrap;">
-                            <div class="quantity-buy d-flex me-3">
-                            <div class="quantity">
-                                <button class="cart-qty-minus" id="dec" @click="decrement" type="button" value="-">-</button>
-                                <input type="text" name="qty" id="qty" min="1" @blur="updateQty" v-model="qty" class="input-text qty" />
-                                <button class="cart-qty-plus" type="button" @click="increment" id="inc" value="+">+</button>
-                                
-                            </div>
-                            <button data-bs-toggle="modal" data-bs-target="#buy-to-cart" class="btn" @click="AddToCart(product, variations, '', size, qty)">Buy</button>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h3>{{product.product ?? product.default_name}}</h3>
+                            </a>
+                            
+                            <h6 class="price pt-3">
+                                <span class="ps-1" style="color: #ff7400; font-weight: bold;">{{Number(product.variation.sell_price_inc_tax).toFixed(2)}}৳</span>
+                            </h6>
+                            <p class="text-sm" v-html="product.description">
+                            </p>
+                            <div class="d-flex" style="flex-wrap: wrap;">
+                                <div class="quantity-buy d-flex me-md-2 me-lg-3 me-1 mb-2">
+                                <div class="quantity">
+                                    <button class="cart-qty-minus" id="dec" @click="decrement" type="button" value="-">-</button>
+                                    <input type="text" name="qty" id="qty" min="1" @blur="updateQty" v-model="qty" class="input-text qty" />
+                                    <button class="cart-qty-plus" type="button" @click="increment" id="inc" value="+">+</button>
+                                    
+                                </div>
+                                <button data-bs-toggle="modal" data-bs-target="#buy-to-cart" class="btn" @click="AddToCart(product, variations, '', size, qty)">Buy</button>
 
-                        </div>
-                            <div class="h-100">
-                                <button data-bs-toggle="modal" data-bs-target="#find-store-modal" class="btn bg-dark rounded-0 text-light find-in-store">
-                                Find In Store
-                            </button>
                             </div>
-                        </div>
-                         <!-- Checkout modal  -->
-                         <checkout :cartItems="cartItems"></checkout>
-                        <div class="products-options mt-4 d-flex" style="flex-wrap: wrap;">
-                            <a href="#" class="text-decoration-none text-dark me-3" @click.prevent="addToCompareList(product)">
-                                <b><i class="fas fa-random"></i> Compare</b>
-                            </a>
-                            <a href="#" class="text-decoration-none text-dark me-3" @click.prevent="AddToWishList(product)">
-                                <b><i class="far fa-heart"></i> Add to Wishlist</b>
-                            </a>
-                            <a href="#" class="text-decoration-none text-dark d-none" data-bs-toggle="modal" data-bs-target="#size-guide">
-                                <b><i class="fas fa-ruler"></i> Size Guide</b>
-                            </a>
-                        </div>
-                        <hr/>
-                        <p><b>SKU:</b> {{product.sku}}</p>
-                        <p><b>Category: </b> {{product.category}}</p>
-                        <p><b>Tags: </b>  </p>
-                        <p class="d-none"><b>Share: </b> 
-                            <a href="#" class="text-dark text-sm p-2 text-decoration-none">
-                            <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="text-dark text-sm p-2 text-decoration-none">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-dark text-sm p-2 text-decoration-none">
-                                <i class="fab fa-pinterest-p"></i>
-                            </a>
-                            <a href="#" class="text-dark text-sm p-2 text-decoration-none">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="text-dark text-sm p-2 text-decoration-none">
-                                <i class="fab fa-telegram-plane"></i>
-                            </a> 
-                        </p>
+                                <div class="h-100">
+                                    <button data-bs-toggle="modal" data-bs-target="#find-store-modal" class="btn bg-dark rounded-0 text-light find-in-store">
+                                    Find Store
+                                </button>
+                                </div>
+                            </div>
+                            <!-- Checkout modal  -->
+                            <checkout :cartItems="cartItems"></checkout>
+                            <div class="products-options mt-4 d-flex" style="flex-wrap: wrap;">
+                                <a href="#" class="text-decoration-none text-dark me-3" @click.prevent="addToCompareList(product)">
+                                    <b><i class="fas fa-random"></i> Compare</b>
+                                </a>
+                                <a href="#" class="text-decoration-none text-dark me-3" @click.prevent="AddToWishList(product)">
+                                    <b><i class="far fa-heart"></i> Add to Wishlist</b>
+                                </a>
+                                <a href="#" class="text-decoration-none text-dark d-none" data-bs-toggle="modal" data-bs-target="#size-guide">
+                                    <b><i class="fas fa-ruler"></i> Size Guide</b>
+                                </a>
+                            </div>
+                            <hr/>
+                            <p><b>SKU:</b> {{product.sku}}</p>
+                            <p><b>Category: </b> {{product.category}}</p>
+                            <p><b>Tags: </b>  </p>
+                            <p class="d-none"><b>Share: </b> 
+                                <a href="#" class="text-dark text-sm p-2 text-decoration-none">
+                                <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="text-dark text-sm p-2 text-decoration-none">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-dark text-sm p-2 text-decoration-none">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                                <a href="#" class="text-dark text-sm p-2 text-decoration-none">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-dark text-sm p-2 text-decoration-none">
+                                    <i class="fab fa-telegram-plane"></i>
+                                </a> 
+                            </p>
                         
+                        </div>
+                        <div class="col-lg-5">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
             <hr/>
-            <div id="actab4" class="tab-content text-start container">
+            <div id="actab4" class="tab-content text-start container mb-2">
                         <div class="row justify-content-center align-items-center g-2">
                             <div class="col-lg-6 col-12">
                                 <h5 class="title"><b>
@@ -168,10 +173,10 @@
                                     We know you don't like to wait, right? Don't worry, you don't need to wait more than 48 hours for Dhaka and 72 hours across the country.
                                 </p>
                             </div>
-                            <div class="col-lg-3 col-12">
+                            <div class="col-lg-3 col-md-6 col-12">
                                 <img src="assets/images/others/redx_courier_logo-400x195.png" alt="" class="col-12">
                             </div>
-                            <div class="col-lg-3 col-12">
+                            <div class="col-lg-3 col-md-6 col-12">
                                 <img src="assets/images/others/sundarban_courier_logo-300x300.png" alt="" class="col-12">
                             </div>
                         </div>

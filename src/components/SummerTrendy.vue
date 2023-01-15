@@ -34,7 +34,7 @@
                             </div>
                   
                             <loading v-if="seen"/>
-                               <div class="row row deal-day-row" v-if="seen == false">
+                               <div class="row row deal-day-row home-slider-product" v-if="seen == false">
                                 <carousel :items-to-show="5" v-if="summer_hot">
                                 <slide  v-for="hot in products.hot" :key="hot.id">
                                 <div class=" product p-2">

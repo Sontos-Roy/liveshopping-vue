@@ -3,7 +3,7 @@
         <section>
             <div class="container mt-5 mb-5">
                 <loading v-if="seen"/>
-                <div class="row deal-day-row" v-if="seen == false">
+                <div class="row deal-day-row flash-sell" v-if="seen == false">
                     <div class="col-lg-3 col-md-4 col-6 product p-2" v-for="sale in flashSell" :key="sale.id">
                         <div class="discount-tag d-none">
                             -48%
